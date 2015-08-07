@@ -1,0 +1,123 @@
+body {
+  margin: 0 5em;
+  font-family: "Lucida Grande", Arial, Serif;
+}
+
+.flow {
+    display: flex;
+}
+
+.flow .title {
+  height: auto;
+  width: auto;
+}
+
+.flow .inputs {
+  height: auto;
+  width: auto;
+  border-style: solid;
+  text-align: center;
+}
+
+.flow .buffer {
+  height: auto;
+  width: 4em;
+}
+
+.flow .stretch {
+    flex: 1;
+}
+
+.title-heading {
+  font-size: 48px;
+  text-align: center;
+  margin: 40px auto;
+  color: #3333FF;
+}
+
+.customer-block {
+  height: 15em;
+}
+
+.earnings-block {
+  height: 15em;
+  border-top: thick solid;
+}
+
+input {
+  margin: 0.5em;
+  border: 1.5px solid black;
+  width: 6em;
+  height: 1.5em;
+}
+
+
+.meal {
+    width: 75%;
+    height: 15em;
+    margin: 2em auto;
+    background-color: yellow;
+
+}
+
+.meal span {
+  float: right;
+  margin-right: 1em;
+  font-size: 24px;
+
+}
+
+.customer-block div, .earnings-block div {
+    height: auto;
+    margin: 2em auto;
+    background-color: orange;
+    text-align: left;
+    font-size: 18px;
+
+}
+
+.customer-block div {
+    width: 30%;
+}
+
+.earnings-block div {
+    width: 50%;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+h1 {
+  text-align: center;
+}
+
+hr {
+    border: 0;
+    border-bottom: 2px solid black;
+    background: black;
+}
+
+button {
+  display: inline-block;
+  margin: 0 auto;
+  height: 2em;
+  width: 8em;
+  background-color: #3333FF;
+  margin-top: 2em;
+  font-weight: bold;
+  color: white;
+}
+
+.reset {
+  float: right;
+}
+
+@media (max-width: 900px) {
+  .inputs h1 {
+    font-size: 18px;
+  }
+}
+
+

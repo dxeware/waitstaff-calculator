@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="waitstaffCalc">
+<head>
+  <meta charset="UTF-8">
+  <title>Waitstaff Calculator</title>
+  <link href="css/style.css" rel="stylesheet">
+  <script src="./angular.js"></script>
+  <script src="./js/waitstaff.js"></script>
+</head>
+<body>
+  <header class="flow">
+    <div class="title stretch">
+      <div class="title-heading">Waitstaff Calculator</div>
+    </div>
+  </header>
+  <section class="flow">
+    <div class="inputs stretch">
+        <h1>Enter the Meal Details</h1>
+        <hr>
+        <div class="meal">
+          <form name="mealForm" ng-submit="submit()">
+            <span>Base Meal Price:  % <input type="number" step="0.01" ng-model="price" required/></span><br>
+            <span>Tax Rate:  % <input type="number" ng-max="100" ng-model="tax" required/></span><br>
+            <span>Tax Percentage:  % <input type="number" ng-max="100" ng-model="tip" required/></span><br>
+          </form>
+
+        </div>
+        <button>Submit</button>
+        <button>Cancel</button>
+
+    </div>
+    <div class="buffer">
+    </div>
+    <div class="inputs stretch">
+      <div class="customer-block">
+        <h1>Customer Charges</h1>
+        <hr>
+        <div>
+          <p>Subtotal  </p>
+          <p>Tip  </p>
+          <hr>
+          <p>Total  </p>
+        </div>
+      </div>
+      <div class="earnings-block">
+        <h1>My Earnings Info</h1>
+        <hr>
+        <div>
+          <p>Tip Total:  </p>
+          <p>Meal count:  </p>
+          <hr>
+          <p>Average Tip Per Meal:  </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <button class="reset" ng-click="startOver()">
+          Reset
+  </button>
+
+
+</body>
+</html>
