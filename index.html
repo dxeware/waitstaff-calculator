@@ -13,8 +13,9 @@
       <div class="title-heading">Waitstaff Calculator</div>
     </div>
   </header>
-  <section class="flow" ng-controller="inputCtrl">
-    <div class="inputs stretch">
+  <section ng-controller="inputCtrl">
+    <section class="flow">
+      <div class="inputs stretch">
         <h1>Enter the Meal Details</h1>
         <hr>
         <div class="meal">
@@ -27,39 +28,42 @@
 
 
         <button ng-click="submit()">Submit</button>
-        <button>Cancel</button>
+        <button ng-click="cancel()">Cancel</button>
         <br><br>
         <span class="error" ng-model="errorMsg">{{ errorMsg }}</span>
 
-    </div>
-    <div class="buffer">
-    </div>
-    <div class="inputs stretch">
-      <div class="customer-block">
-        <h1>Customer Charges</h1>
-        <hr>
-        <div>
-          <p>Subtotal  <span>${{ subtotalStr }}</span></p>
-          <p>Tip  <span>${{ tipDollarsStr }}</span></p>
+      </div>
+      <div class="buffer">
+      </div>
+      <div class="inputs stretch">
+        <div class="customer-block">
+          <h1>Customer Charges</h1>
           <hr>
-          <p>Total  <span>${{ mealTotalStr }}</span></p>
+          <div>
+            <p>Subtotal  <span>${{ subtotalStr }}</span></p>
+            <p>Tip  <span>${{ tipDollarsStr }}</span></p>
+            <hr>
+            <p>Total  <span>${{ mealTotalStr }}</span></p>
+          </div>
+        </div>
+        <div class="earnings-block">
+          <h1>My Earnings Info</h1>
+          <hr>
+          <div>
+            <p>Tip Total:  <span>${{ tipCountStr }}</span></p>
+            <p>Meal count:  <span>${{ mealCountStr }}</span></p>
+            <hr>
+            <p>Avg Tip Per Meal:  <span>{{ avgTipStr }}%</span></p>
+          </div>
         </div>
       </div>
-      <div class="earnings-block">
-        <h1>My Earnings Info</h1>
-        <hr>
-        <div>
-          <p>Tip Total:  <span>${{ tipCountStr }}</span></p>
-          <p>Meal count:  <span>${{ mealCountStr }}</span></p>
-          <hr>
-          <p>Avg Tip Per Meal:  <span>{{ avgTipStr }}%</span></p>
-        </div>
-      </div>
-    </div>
+
+    </section>
+    <button class="reset" ng-click="startOver()">
+            Reset
+    </button>
   </section>
-  <button class="reset" ng-click="startOver()">
-          Reset
-  </button>
+
 
 
 </body>
