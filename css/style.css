@@ -53,40 +53,45 @@ input {
 
 
 .meal {
-    width: 75%;
+    width: 85%;
     height: 15em;
     margin: 2em auto;
     background-color: yellow;
-
 }
 
 .meal span {
   float: right;
-  margin-right: 1em;
-  font-size: 24px;
+  margin-right: 2em;
+  font-size: 20px;
 
 }
 
+
 .customer-block div, .earnings-block div {
     height: auto;
-    margin: 2em auto;
+    margin: 1.5em auto;
     background-color: orange;
     text-align: left;
-    font-size: 18px;
+    font-size: 20px;
 
 }
 
 .customer-block div {
-    width: 30%;
+    width: 65%;
+}
+
+.customer-block span, .earnings-block span {
+    float: right;
 }
 
 .earnings-block div {
-    width: 50%;
+    width: 65%;
 }
 
 .error {
   color: red;
   font-weight: bold;
+  font-size: 12px;
 }
 
 h1 {
@@ -117,6 +122,12 @@ button {
 @media (max-width: 900px) {
   .inputs h1 {
     font-size: 18px;
+  }
+  .inputs span {
+    font-size: 18px;
+  }
+  p {
+    font-size: 16px;
   }
 }
 

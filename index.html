@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Waitstaff Calculator</title>
   <link href="css/style.css" rel="stylesheet">
-  <script src="./angular.js"></script>
+  <script src="https://code.angularjs.org/1.3.10/angular.js"></script>
   <script src="./js/waitstaff.js"></script>
 </head>
 <body>
@@ -13,20 +13,23 @@
       <div class="title-heading">Waitstaff Calculator</div>
     </div>
   </header>
-  <section class="flow">
+  <section class="flow" ng-controller="inputCtrl">
     <div class="inputs stretch">
         <h1>Enter the Meal Details</h1>
         <hr>
         <div class="meal">
-          <form name="mealForm" ng-submit="submit()">
-            <span>Base Meal Price:  % <input type="number" step="0.01" ng-model="price" required/></span><br>
-            <span>Tax Rate:  % <input type="number" ng-max="100" ng-model="tax" required/></span><br>
-            <span>Tax Percentage:  % <input type="number" ng-max="100" ng-model="tip" required/></span><br>
+          <form name="mealForm" novalidate>
+            <span>Base Meal Price:  $ <input type="number" name="price" step="0.01" ng-min="0.01" ng-model="price"/></span><br>
+            <span>Tax Rate:  % <input type="number" name="tax" ng-max="percentageMax" ng-min="0" ng-model="tax"/></span><br>
+            <span>Tip Percentage:  % <input type="number" name="tip" ng-max="percentageMax" ng-min="0" ng-model="tip"/></span><br>
           </form>
-
         </div>
-        <button>Submit</button>
+
+
+        <button ng-click="submit()">Submit</button>
         <button>Cancel</button>
+        <br><br>
+        <span class="error" ng-model="errorMsg">{{ errorMsg }}</span>
 
     </div>
     <div class="buffer">
@@ -36,20 +39,20 @@
         <h1>Customer Charges</h1>
         <hr>
         <div>
-          <p>Subtotal  </p>
-          <p>Tip  </p>
+          <p>Subtotal  <span>${{ subtotal }}</span></p>
+          <p>Tip  <span>${{ tipDollars }}</span></p>
           <hr>
-          <p>Total  </p>
+          <p>Total  <span>${{ mealTotal }}</span></p>
         </div>
       </div>
       <div class="earnings-block">
         <h1>My Earnings Info</h1>
         <hr>
         <div>
-          <p>Tip Total:  </p>
-          <p>Meal count:  </p>
+          <p>Tip Total:  ${{ tipCount }}</p>
+          <p>Meal count:  <span>${{ mealCount }}</span></p>
           <hr>
-          <p>Average Tip Per Meal:  </p>
+          <p>Avg Tip Per Meal:  <span>{{ avgTip }}%</span></p>
         </div>
       </div>
     </div>
