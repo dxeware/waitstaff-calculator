@@ -1,6 +1,7 @@
 body {
   margin: 0 5em;
   font-family: "Lucida Grande", Arial, Serif;
+  color: #473E3F;
 }
 
 .flow {
@@ -17,6 +18,11 @@ body {
   width: auto;
   border-style: solid;
   text-align: center;
+  background-color: #218C8D;
+}
+
+.flow .yellow-block {
+  background-color: #F9E559;
 }
 
 .flow .buffer {
@@ -32,7 +38,7 @@ body {
   font-size: 48px;
   text-align: center;
   margin: 40px auto;
-  color: #3333FF;
+  color: #EF7126;
 }
 
 .customer-block {
@@ -47,30 +53,30 @@ body {
 input {
   margin: 0.5em;
   border: 1.5px solid black;
-  width: 6em;
+  width: 5em;
   height: 1.5em;
 }
-
 
 .meal {
     width: 85%;
     height: 15em;
     margin: 2em auto;
-    background-color: yellow;
 }
 
 .meal span {
   float: right;
-  margin-right: 2em;
+  margin-right: 3em;
   font-size: 20px;
 
 }
 
+.earnings-block {
+  background-color: #6CCECB;
+}
 
 .customer-block div, .earnings-block div {
     height: auto;
-    margin: 1.5em auto;
-    background-color: orange;
+    margin: 0.5em auto;
     text-align: left;
     font-size: 20px;
 
@@ -96,20 +102,21 @@ input {
 
 h1 {
   text-align: center;
+  font-size: 22px;
 }
 
 hr {
     border: 0;
-    border-bottom: 2px solid black;
-    background: black;
+    border-bottom: 2px solid #473E3F;
+    background: #473E3F;
 }
 
 button {
   display: inline-block;
   margin: 0 auto;
-  height: 2em;
-  width: 8em;
-  background-color: #3333FF;
+  height: 3em;
+  width: 10em;
+  background-color: #EF7126;
   margin-top: 2em;
   font-weight: bold;
   color: white;
@@ -119,7 +126,7 @@ button {
   float: right;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
   .inputs h1 {
     font-size: 18px;
   }
@@ -128,6 +135,15 @@ button {
   }
   p {
     font-size: 16px;
+  }
+  .customer-block div, .earnings-block div {
+    margin: 1.5em auto;
+  }
+}
+
+@media (max-width: 1000px) {
+  .meal span {
+    margin-right: 2em;
   }
 }
 
