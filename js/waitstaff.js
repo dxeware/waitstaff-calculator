@@ -8,13 +8,19 @@ var debug = function(msg) {
 angular.module('waitstaffCalc', [])
   .controller('inputCtrl', function($scope) {
 
+    var tipCount = 0;
+    var mealCount = 0;
+
     $scope.priceMin = 0.01;
     $scope.percentageMax = 100;
-    $scope.tipCount = 0;
-    $scope.mealCount = 0;
 
     // Validity checking of inputs and show story is OK
     $scope.submit = function() {
+
+        var subtotal, tipDollars, mealTotal;
+        var avgTip;
+
+
         debug("Caught form submission!");
 
         debug("Form valid = " + $scope.mealForm.$valid);
@@ -34,26 +40,28 @@ angular.module('waitstaffCalc', [])
         } else {
             debug("price = " + $scope.mealForm.price.$modelValue);
             debug("tax = " + $scope.mealForm.tax.$modelValue);
-            //$scope.subtotal = ($scope.mealForm.price.$modelValue *
-              //                  ( 1 + $scope.mealForm.tax.$modelValue/100 ))
-               //                 .toFixed(2);
-            $scope.subtotal = $scope.mealForm.price.$modelValue *
-                                ( 1 + $scope.mealForm.tax.$modelValue/100 );
-            debug("subtotal = " + $scope.subtotal);
-            $scope.tipDollars = $scope.subtotal * $scope.mealForm.tip.$modelValue/100;
-            debug("tipDollars = " + $scope.tipDollars);
-            //$scope.mealTotal = parseFloat($scope.subtotal + $scope.tipDollars).toFixed(2);
-            $scope.mealTotal = $scope.subtotal + $scope.tipDollars;
-            debug("mealTotal = " + $scope.mealTotal);
 
-            $scope.tipCount += $scope.tipDollars;
-            //$scope.tipCount = $scope.tipCount + 240;
+            //Calculate customer charges and waiter earnings
+            subtotal = $scope.mealForm.price.$modelValue *
+                              ( 1 + $scope.mealForm.tax.$modelValue/100 );
 
-            //$scope.tipCount = ($scope.tipCount).toFixed(2);
-            $scope.mealCount += $scope.subtotal;
-            //$scope.mealCount = parseFloat($scope.mealCount).toFixed(2);
-            debug("mealCount = " + $scope.mealCount);
-            $scope.avgTip = ($scope.tipCount / $scope.mealCount * 100).toFixed(2);
+            debug("subtotal = " + subtotal);
+            tipDollars = subtotal * $scope.mealForm.tip.$modelValue/100;
+            debug("tipDollars = " + tipDollars);
+            mealTotal = subtotal + tipDollars;
+            debug("mealTotal = " + mealTotal);
+
+            tipCount += tipDollars;
+            mealCount += subtotal;
+
+            //Display to view -- handling rounding to 2 decimal places
+            $scope.subtotalStr = subtotal.toFixed(2);
+            $scope.tipDollarsStr = tipDollars.toFixed(2);
+            $scope.mealTotalStr = mealTotal.toFixed(2);
+
+            $scope.tipCountStr = tipCount.toFixed(2);
+            $scope.mealCountStr = mealCount.toFixed(2);
+            $scope.avgTipStr = (tipCount / mealCount * 100).toFixed(2);
         }
     };
     // Fill in the user's answers for story
