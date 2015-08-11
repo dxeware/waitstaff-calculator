@@ -20,9 +20,9 @@
         <hr>
         <div class="meal">
           <form name="mealForm" novalidate>
-            <span>Base Meal Price:  $ <input type="number" name="price" step="0.01" ng-min="0.01" ng-model="price"/></span><br>
-            <span>Tax Rate:  % <input type="number" name="tax" ng-max="percentageMax" ng-min="0" ng-model="tax"/></span><br>
-            <span>Tip Percentage:  % <input type="number" name="tip" ng-max="percentageMax" ng-min="0" ng-model="tip"/></span><br>
+            <span>Base Meal Price:  $ <input type="number" name="price" step="0.01" ng-min="0.01" ng-model="price" required/></span><br>
+            <span>Tax Rate:  % <input type="number" name="tax" ng-max="percentageMax" ng-min="0" ng-model="tax" required/></span><br>
+            <span>Tip Percentage:  % <input type="number" name="tip" ng-max="percentageMax" ng-min="0" ng-model="tip" required/></span><br>
           </form>
         </div>
         <button ng-click="submit()">Submit</button>

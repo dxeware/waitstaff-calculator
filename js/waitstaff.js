@@ -27,7 +27,12 @@ angular.module('waitstaffCalc', [])
         if( !$scope.mealForm.$valid ) {
             debug("tax error max= " + $scope.mealForm.tax.$error.max);
             debug("tax error min= " + $scope.mealForm.tax.$error.min);
-            if( $scope.mealForm.tax.$error.min || $scope.mealForm.tax.$error.max ) {
+            if ( ( $scope.mealForm.price.$error.required ) ||
+                    ( $scope.mealForm.tax.$error.required ) ||
+                    ( $scope.mealForm.tip.$error.required ) ) {
+                $scope.errorMsg = "All inputs are required!";
+                debug($scope.errorMsg);
+            } else if( $scope.mealForm.tax.$error.min || $scope.mealForm.tax.$error.max ) {
                 $scope.errorMsg = "The tax rate must be > 0 and <= " + $scope.percentageMax + "!";
                 debug($scope.errorMsg);
             } else if ( $scope.mealForm.tip.$error.min || $scope.mealForm.tip.$error.max ) {
@@ -66,6 +71,7 @@ angular.module('waitstaffCalc', [])
     // Clear user inputs when cancel button pressed
     $scope.cancel = function() {
 
+        $scope.errorMsg = "";
         $scope.price = "";
         $scope.tax = "";
         $scope.tip = "";
