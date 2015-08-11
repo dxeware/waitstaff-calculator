@@ -25,13 +25,10 @@
             <span>Tip Percentage:  % <input type="number" name="tip" ng-max="percentageMax" ng-min="0" ng-model="tip"/></span><br>
           </form>
         </div>
-
-
         <button ng-click="submit()">Submit</button>
         <button ng-click="cancel()">Cancel</button>
         <br><br>
         <span class="error" ng-model="errorMsg">{{ errorMsg }}</span>
-
       </div>
       <div class="buffer">
       </div>
@@ -60,11 +57,9 @@
 
     </section>
     <button class="reset" ng-click="startOver()">
-            Reset
+      Reset
     </button>
   </section>
-
-
 
 </body>
 </html>

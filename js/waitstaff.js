@@ -38,18 +38,16 @@ angular.module('waitstaffCalc', [])
                 debug($scope.errorMsg);
             }
         } else {
-            debug("price = " + $scope.mealForm.price.$modelValue);
-            debug("tax = " + $scope.mealForm.tax.$modelValue);
+
+            // Clear errorMsg
+            $scope.errorMsg = "";
 
             //Calculate customer charges and waiter earnings
             subtotal = $scope.mealForm.price.$modelValue *
                               ( 1 + $scope.mealForm.tax.$modelValue/100 );
 
-            debug("subtotal = " + subtotal);
             tipDollars = subtotal * $scope.mealForm.tip.$modelValue/100;
-            debug("tipDollars = " + tipDollars);
             mealTotal = subtotal + tipDollars;
-            debug("mealTotal = " + mealTotal);
 
             tipCount += tipDollars;
             mealCount += subtotal;
@@ -65,6 +63,7 @@ angular.module('waitstaffCalc', [])
         }
     };
 
+    // Clear user inputs when cancel button pressed
     $scope.cancel = function() {
 
         $scope.price = "";
