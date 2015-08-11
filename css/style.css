@@ -97,7 +97,7 @@ input {
 .error {
   color: red;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 h1 {
@@ -132,6 +132,9 @@ button {
   }
   .inputs span {
     font-size: 18px;
+  }
+  .inputs .error {
+    font-size: 12px;
   }
   p {
     font-size: 16px;
