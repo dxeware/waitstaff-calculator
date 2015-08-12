@@ -14,6 +14,16 @@ angular.module('waitstaffCalc', [])
     $scope.priceMin = 0.01;
     $scope.percentageMax = 100;
 
+    $scope.meal = {
+        price: "",
+        tax: "",
+        tip: ""
+    };
+
+    $scope.error = {
+        msg: ""
+    };
+
     // Validity checking of inputs and show story is OK
     $scope.submit = function() {
 
@@ -30,28 +40,28 @@ angular.module('waitstaffCalc', [])
             if ( ( $scope.mealForm.price.$error.required ) ||
                     ( $scope.mealForm.tax.$error.required ) ||
                     ( $scope.mealForm.tip.$error.required ) ) {
-                $scope.errorMsg = "All inputs are required!";
-                debug($scope.errorMsg);
+                $scope.error.msg = "All inputs are required!";
+                debug($scope.error.msg);
             } else if( $scope.mealForm.tax.$error.min || $scope.mealForm.tax.$error.max ) {
-                $scope.errorMsg = "The tax rate must be > 0 and <= " + $scope.percentageMax + "!";
-                debug($scope.errorMsg);
+                $scope.error.msg = "The tax rate must be > 0 and <= " + $scope.percentageMax + "!";
+                debug($scope.error.msg);
             } else if ( $scope.mealForm.tip.$error.min || $scope.mealForm.tip.$error.max ) {
-                $scope.errorMsg = "The tip must be > 0 and <= " + $scope.percentageMax + "!";
-                debug($scope.errorMsg);
+                $scope.error.msg = "The tip must be > 0 and <= " + $scope.percentageMax + "!";
+                debug($scope.error.msg);
             } else if ( $scope.mealForm.price.$error.min ) {
-                $scope.errorMsg = "The meal price must be > $0!";
-                debug($scope.errorMsg);
+                $scope.error.msg = "The meal price must be > $0!";
+                debug($scope.error.msg);
             }
         } else {
 
             // Clear errorMsg
-            $scope.errorMsg = "";
+            $scope.error.msg = "";
 
             //Calculate customer charges and waiter earnings
-            subtotal = $scope.mealForm.price.$modelValue *
-                              ( 1 + $scope.mealForm.tax.$modelValue/100 );
+            subtotal = $scope.meal.price *
+                              ( 1 + $scope.meal.tax/100 );
 
-            tipDollars = subtotal * $scope.mealForm.tip.$modelValue/100;
+            tipDollars = subtotal * $scope.meal.tip/100;
             mealTotal = subtotal + tipDollars;
 
             tipCount += tipDollars;
@@ -71,10 +81,10 @@ angular.module('waitstaffCalc', [])
     // Clear user inputs when cancel button pressed
     $scope.cancel = function() {
 
-        $scope.errorMsg = "";
-        $scope.price = "";
-        $scope.tax = "";
-        $scope.tip = "";
+        $scope.error.msg = "";
+        $scope.meal.price = "";
+        $scope.meal.tax = "";
+        $scope.meal.tip = "";
     };
 
     // Reset in order to start over
