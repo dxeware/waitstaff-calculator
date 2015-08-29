@@ -13,6 +13,14 @@ body {
   width: auto;
 }
 
+.flow .menu {
+  height: 36px;
+  width: auto;
+  font-size: 18px;
+  text-align: center;
+  margin: 10px auto;
+}
+
 .flow .inputs {
   height: auto;
   width: auto;
@@ -37,7 +45,7 @@ body {
 .title-heading {
   font-size: 48px;
   text-align: center;
-  margin: 40px auto;
+  margin: 40px auto 10px auto;
   color: #EF7126;
 }
 
@@ -100,9 +108,20 @@ input {
   font-size: 18px;
 }
 
+a:active {
+    background-color: yellow;;
+}
+
 h1 {
   text-align: center;
   font-size: 22px;
+}
+
+p {
+  text-align: left;
+  margin-left: 4em;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 hr {
