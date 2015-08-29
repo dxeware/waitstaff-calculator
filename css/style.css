@@ -26,6 +26,7 @@ body {
   width: auto;
   border-style: solid;
   text-align: center;
+  margin: auto 12em;
   background-color: #249798;
 }
 
@@ -66,8 +67,8 @@ input {
 }
 
 .meal {
-    width: 85%;
-    height: 15em;
+    width: 50%;
+    height: 5em;
     margin: 2em auto;
 }
 
@@ -141,11 +142,18 @@ button {
   color: white;
 }
 
+.button {
+  display: inline-block;
+}
+
 .reset {
   float: right;
 }
 
 @media (max-width: 950px) {
+  .flow .inputs {
+    margin: auto 6em;
+  }
   .inputs h1 {
     font-size: 18px;
   }

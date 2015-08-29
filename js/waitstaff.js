@@ -27,10 +27,10 @@ angular.module('WaitStaffApp', ['ngRoute'])
 
   }])
   .controller('HomeCtrl', function($scope) {
-    // empty for now
+    // do nothing for now
   })
   .controller('MealCtrl', function($scope) {
-    // do nothing for now
+    $scope.showHome = true;
   })
   .controller('EarningsCtrl', function($scope) {
     // do nothing for now
