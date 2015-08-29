@@ -1,3 +1,10 @@
+var DEBUG_MODE = true;
+var debug = function(msg) {
+  if (DEBUG_MODE === true) {
+      console.log("DEBUG:", msg);
+  }
+};
+
 angular.module('WaitStaffApp', ['ngRoute'])
   //.value('owmCities', ['New York', 'Dallas', 'Chicago'])
   .config(['$routeProvider',function($routeProvider) {
@@ -31,7 +38,7 @@ angular.module('WaitStaffApp', ['ngRoute'])
   })
   .controller('MealCtrl', function($scope) {
     //$scope.showHome = true;
-    /* var tipCount = 0;
+    var tipCount = 0;
     var mealCount = 0;
 
     $scope.priceMin = 0.01;
@@ -126,7 +133,7 @@ angular.module('WaitStaffApp', ['ngRoute'])
         $scope.avgTipStr = "";
 
     };
-*/
+
   })
   .controller('EarningsCtrl', function($scope) {
     // do nothing for now
