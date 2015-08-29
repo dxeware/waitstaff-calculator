@@ -5,8 +5,12 @@ var debug = function(msg) {
   }
 };
 
+var tipCount = 0;
+var mealCount = 0;
+
 angular.module('WaitStaffApp', ['ngRoute'])
   //.value('owmCities', ['New York', 'Dallas', 'Chicago'])
+
   .config(['$routeProvider',function($routeProvider) {
     $routeProvider.when('/', {
       templateUrl : 'home.html',
@@ -38,8 +42,7 @@ angular.module('WaitStaffApp', ['ngRoute'])
   })
   .controller('MealCtrl', function($scope) {
     //$scope.showHome = true;
-    var tipCount = 0;
-    var mealCount = 0;
+
 
     $scope.priceMin = 0.01;
     $scope.percentageMax = 100;
@@ -102,9 +105,6 @@ angular.module('WaitStaffApp', ['ngRoute'])
             $scope.tipDollarsStr = tipDollars.toFixed(2);
             $scope.mealTotalStr = mealTotal.toFixed(2);
 
-            $scope.tipCountStr = tipCount.toFixed(2);
-            $scope.mealCountStr = mealCount.toFixed(2);
-            $scope.avgTipStr = (tipCount / mealCount * 100).toFixed(2);
         }
     };
 
@@ -120,25 +120,35 @@ angular.module('WaitStaffApp', ['ngRoute'])
         $scope.mealTotalStr = "";
     };
 
+
+
+  })
+  .controller('EarningsCtrl', function($scope) {
+
+    $scope.tipCountStr = tipCount.toFixed(2);
+    $scope.mealCountStr = mealCount.toFixed(2);
+    if ( mealCount === 0 ) {
+      $scope.avgTipStr = '0';
+    } else {
+      $scope.avgTipStr = (tipCount / mealCount * 100).toFixed(2);
+    }
+
     // Reset in order to start over
     $scope.startOver = function() {
         tipCount = 0;
         mealCount = 0;
 
-        //Clear inputs by calling cancel()
-        $scope.cancel();
 
-        $scope.subtotalStr = "";
-        $scope.tipDollarsStr = "";
-        $scope.mealTotalStr = "";
+        //Clear inputs by calling cancel()
+        //$scope.cancel();
+
+        //$scope.subtotalStr = "";
+        //$scope.tipDollarsStr = "";
+        //$scope.mealTotalStr = "";
         $scope.tipCountStr = "";
         $scope.mealCountStr = "";
         $scope.avgTipStr = "";
 
     };
-
-  })
-  .controller('EarningsCtrl', function($scope) {
-    // do nothing for now
   });
 
