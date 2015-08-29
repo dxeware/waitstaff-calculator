@@ -24,19 +24,20 @@ body {
 .flow .inputs {
   height: auto;
   width: auto;
-  border-style: solid;
   text-align: center;
   margin: auto 12em;
-  background-color: #249798;
 }
 
 .flow .yellow-block {
   background-color: #F9E559;
+  border-style: solid;
 }
 
 .flow .buffer {
-  height: auto;
-  width: 4em;
+  height: 2em;
+  width: auto;
+  background-color: white;
+  border-style: none;
 }
 
 .flow .stretch {

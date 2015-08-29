@@ -115,6 +115,9 @@ angular.module('WaitStaffApp', ['ngRoute'])
         $scope.meal.price = "";
         $scope.meal.tax = "";
         $scope.meal.tip = "";
+        $scope.subtotalStr = "";
+        $scope.tipDollarsStr = "";
+        $scope.mealTotalStr = "";
     };
 
     // Reset in order to start over

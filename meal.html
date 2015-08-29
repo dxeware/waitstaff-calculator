@@ -1,20 +1,34 @@
 <section ng-controller="MealCtrl">
   <section class="flow" >
-    <div class="inputs stretch yellow-block">
-      <h1>Enter the Meal Details</h1>
-      <hr>
-      <div class="meal">
-        <form name="mealForm" novalidate>
-          <span>Base Meal Price:  $ <input type="number" name="price" step="0.01" ng-min="0.01" ng-model="meal.price" required/></span><br>
-          <span>Tax Rate:  % <input type="number" name="tax" ng-max="percentageMax" ng-min="0" ng-model="meal.tax" required/></span><br>
-          <span>Tip Percentage:  % <input type="number" name="tip" ng-max="percentageMax" ng-min="0" ng-model="meal.tip" required/></span><br>
-        </form>
+    <div class="inputs stretch">
+      <div class="yellow-block">
+        <h1>Enter the Meal Details</h1>
+        <hr>
+        <div class="meal">
+          <form name="mealForm" novalidate>
+            <span>Base Meal Price:  $ <input type="number" name="price" step="0.01" ng-min="0.01" ng-model="meal.price" required/></span><br>
+            <span>Tax Rate:  % <input type="number" name="tax" ng-max="percentageMax" ng-min="0" ng-model="meal.tax" required/></span><br>
+            <span>Tip Percentage:  % <input type="number" name="tip" ng-max="percentageMax" ng-min="0" ng-model="meal.tip" required/></span><br>
+          </form>
+        </div>
+        <div class="button">
+          <button ng-click="submit()">Submit</button>
+          <button ng-click="cancel()">Cancel</button>
+          <br><br>
+          <span class="error" ng-model="error.msg">{{ error.msg }}</span>
+        </div>
       </div>
-      <div class="button">
-        <button ng-click="submit()">Submit</button>
-        <button ng-click="cancel()">Cancel</button>
-        <br><br>
-        <span class="error" ng-model="error.msg">{{ error.msg }}</span>
+      <div class="buffer">
+      </div>
+      <div class="customer-block yellow-block">
+        <h1>Customer Charges</h1>
+        <hr>
+        <div>
+          <p>Subtotal  <span>${{ subtotalStr }}</span></p>
+          <p>Tip  <span>${{ tipDollarsStr }}</span></p>
+          <hr>
+          <p>Total  <span>${{ mealTotalStr }}</span></p>
+        </div>
       </div>
     </div>
   </section>
