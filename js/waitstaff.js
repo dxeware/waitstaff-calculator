@@ -9,7 +9,6 @@ var tipCount = 0;
 var mealCount = 0;
 
 angular.module('WaitStaffApp', ['ngRoute'])
-  //.value('owmCities', ['New York', 'Dallas', 'Chicago'])
 
   .config(['$routeProvider',function($routeProvider) {
     $routeProvider.when('/', {
@@ -18,31 +17,20 @@ angular.module('WaitStaffApp', ['ngRoute'])
     }).when('/new-meal', {
       templateUrl : 'meal.html',
       controller : 'MealCtrl',
-      /*resolve : {
-        city : function(owmCities, $route, $location) {
-          var city = $route.current.params.city;
-          if (owmCities.indexOf(city) == -1) {
-            $location.path('/error');
-            return;
-          }
-          return city;
-        }
-      } */
     }).when('/my-earnings', {
       templateUrl : 'earnings.html',
       controller : 'EarningsCtrl',
-    });
-    //.when('/error', {
-    //  template : '<p>Error - Page Not Found</p>'
-    // })
+    })
+    .when('/error', {
+      templateUrl : 'home.html',
+     })
+    .otherwise('/error');
 
   }])
   .controller('HomeCtrl', function($scope) {
     // do nothing for now
   })
   .controller('MealCtrl', function($scope) {
-    //$scope.showHome = true;
-
 
     $scope.priceMin = 0.01;
     $scope.percentageMax = 100;
@@ -120,8 +108,6 @@ angular.module('WaitStaffApp', ['ngRoute'])
         $scope.mealTotalStr = "";
     };
 
-
-
   })
   .controller('EarningsCtrl', function($scope) {
 
@@ -138,13 +124,6 @@ angular.module('WaitStaffApp', ['ngRoute'])
         tipCount = 0;
         mealCount = 0;
 
-
-        //Clear inputs by calling cancel()
-        //$scope.cancel();
-
-        //$scope.subtotalStr = "";
-        //$scope.tipDollarsStr = "";
-        //$scope.mealTotalStr = "";
         $scope.tipCountStr = "";
         $scope.mealCountStr = "";
         $scope.avgTipStr = "";
