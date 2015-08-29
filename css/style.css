@@ -118,9 +118,9 @@ h1 {
   font-size: 22px;
 }
 
-p {
+.home {
   text-align: left;
-  margin-left: 4em;
+  margin: auto 12em;
   font-size: 16px;
   font-weight: bold;
 }
@@ -151,7 +151,7 @@ button {
 }
 
 @media (max-width: 950px) {
-  .flow .inputs {
+  .flow .inputs, .home {
     margin: auto 6em;
   }
   .inputs h1 {
