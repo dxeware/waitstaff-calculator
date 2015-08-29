@@ -1,1 +1,16 @@
-<h1>This is the Earnings page</h1>
+<section ng-controller="EarningsCtrl">
+  <section class="flow">
+    <div class="inputs stretch">
+      <div class="earnings-block">
+        <h1>My Earnings Info</h1>
+        <hr>
+        <div>
+          <p>Tip Total:  <span>${{ tipCountStr }}</span></p>
+          <p>Meal count:  <span>${{ mealCountStr }}</span></p>
+          <hr>
+          <p>Avg Tip Per Meal:  <span>{{ avgTipStr }}%</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

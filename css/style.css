@@ -56,8 +56,9 @@ body {
 }
 
 .earnings-block {
-  height: 15em;
-  border-top: thick solid;
+  height: auto;
+  border: thick solid;
+  padding: 0.5em 0;
 }
 
 input {
