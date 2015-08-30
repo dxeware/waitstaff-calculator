@@ -11,13 +11,13 @@
       <div class="title-heading">Waitstaff Calculator</div>
     </div>
   </header>
-  <section class="flow">
+  <section class="flow" ng-controller="HomeCtrl">
     <div class="menu stretch">
-      <a href="#/">Home</a>
+      <a ng-class="{active:isActive('/')}" href="#/">Home</a>
       <span> | </span>
-      <a href="#/new-meal">New Meal</a>
+      <a ng-class="{active:isActive('/new-meal')}" href="#/new-meal">New Meal</a>
       <span> | </span>
-      <a href="#/my-earnings">My Earnings</a>
+      <a ng-class="{active:isActive('/my-earnings')}" href="#/my-earnings">My Earnings</a>
     </div>
   </section>
   <section>

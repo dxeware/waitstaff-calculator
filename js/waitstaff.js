@@ -13,7 +13,8 @@ angular.module('WaitStaffApp', ['ngRoute'])
   .config(['$routeProvider',function($routeProvider) {
     $routeProvider.when('/', {
       templateUrl : 'home.html',
-      controller : 'HomeCtrl'
+      controller : 'HomeCtrl',
+      activetab: 'home'
     }).when('/new-meal', {
       templateUrl : 'meal.html',
       controller : 'MealCtrl',
@@ -27,8 +28,11 @@ angular.module('WaitStaffApp', ['ngRoute'])
     .otherwise('/error');
 
   }])
-  .controller('HomeCtrl', function($scope) {
-    // do nothing for now
+  .controller('HomeCtrl', function($scope, $location) {
+    // Set active link
+    $scope.isActive = function(route) {
+        return route === $location.path();
+    };
   })
   .controller('MealCtrl', function($scope) {
 

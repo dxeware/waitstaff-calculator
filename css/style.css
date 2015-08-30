@@ -19,6 +19,7 @@ body {
   font-size: 18px;
   text-align: center;
   margin: 10px auto;
+  color: #EF7126;
 }
 
 .flow .inputs {
@@ -111,8 +112,13 @@ input {
   font-size: 18px;
 }
 
-a:active {
-    background-color: yellow;;
+a {
+  color: #696969;
+}
+
+.active {
+    text-decoration: none;
+    color: #EF7126;
 }
 
 h1 {
@@ -123,7 +129,7 @@ h1 {
 
 .home {
   text-align: left;
-  margin: auto 12em;
+  margin: auto 16em;
   font-size: 16px;
   font-weight: bold;
 }
@@ -171,6 +177,12 @@ button {
   }
   .customer-block div, .earnings-block div {
     margin: 1.5em auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .home {
+    margin: auto 2em;
   }
 }
 
