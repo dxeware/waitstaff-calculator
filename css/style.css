@@ -160,7 +160,7 @@ button {
 }
 
 @media (max-width: 950px) {
-  .flow .inputs, .home {
+  .flow .inputs {
     margin: auto 6em;
   }
   .inputs h1 {
@@ -177,6 +177,12 @@ button {
   }
   .customer-block div, .earnings-block div {
     margin: 1.5em auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  .home {
+    margin: auto 6em;
   }
 }
 
