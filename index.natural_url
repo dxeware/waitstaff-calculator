@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WaitStaffApp">
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <title>Waitstaff Calculator</title>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+  <header class="flow">
+    <div class="title stretch">
+      <div class="title-heading">Waitstaff Calculator</div>
+    </div>
+  </header>
+  <section class="flow">
+    <div class="menu stretch">
+      <a href="/">Home</a>
+      <span> | </span>
+      <a href="/new-meal">New Meal</a>
+      <span> | </span>
+      <a href="/my-earnings">My Earnings</a>
+    </div>
+  </section>
+  <section>
+    <div ng-view></div>
+  </section>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+  <script type="text/javascript" src="js/waitstaff.js"></script>
+
+</body>
+</html>
