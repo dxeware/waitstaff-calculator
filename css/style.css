@@ -159,6 +159,87 @@ button {
   margin: 1em auto;
 }
 
+
+/* -------ANIMATIONS------- */
+
+/* home ---------------------- */
+.page-home.ng-leave {
+    -webkit-animation:slideOutLeft 0.5s both ease-in;
+    -moz-animation:slideOutLeft 0.5s both ease-in;
+    animation:slideOutLeft 0.5s both ease-in;
+}
+
+.page-home.ng-enter {
+    -webkit-animation:slideInRight 0.5s both ease-in;
+    -moz-animation:slideInRight 0.5s both ease-in;
+    animation:slideInRight 0.5s both ease-in;
+}
+
+/* slide in from the bottom */
+@keyframes slideOutLeft {
+  to    { transform: translateX(-100%); }
+}
+@-moz-keyframes slideOutLeft {
+  to    { -moz-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideOutLeft {
+  to    { -webkit-transform: translateX(-100%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+  from  { transform:translateX(100%); }
+  to    { transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+  from  { -moz-transform:translateX(100%); }
+  to    { -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+  from  { -webkit-transform:translateX(100%); }
+  to    { -webkit-transform: translateX(0); }
+}
+
+/* meal ---------------------- */
+.page-meal.ng-leave      {
+    -webkit-transform-origin: 50% 50%;
+  -webkit-animation: rotateOutNewspaper .5s both ease-in;
+  -moz-transform-origin: 50% 50%;
+  -moz-animation: rotateOutNewspaper .5s both ease-in;
+  transform-origin: 50% 50%;
+  animation: rotateOutNewspaper .5s both ease-in;
+}
+.page-meal.ng-enter    {
+    -webkit-animation:slideInUp 0.5s both ease-in;
+  -moz-animation:slideInUp 0.5s both ease-in;
+  animation:slideInUp 0.5s both ease-in;
+}
+
+/* rotate out newspaper */
+@-webkit-keyframes rotateOutNewspaper {
+  to { -webkit-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@-moz-keyframes rotateOutNewspaper {
+  to { -moz-transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+@keyframes rotateOutNewspaper {
+  to { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
+}
+
+/* slide in from the bottom */
+@keyframes slideInUp {
+  from  { transform:translateY(100%); }
+  to    { transform: translateY(0); }
+}
+@-moz-keyframes slideInUp {
+  from  { -moz-transform:translateY(100%); }
+  to    { -moz-transform: translateY(0); }
+}
+@-webkit-keyframes slideInUp {
+  from  { -webkit-transform:translateY(100%); }
+  to    { -webkit-transform: translateY(0); }
+}
+
 @media (max-width: 1100px) {
   .flow .inputs {
     margin: auto 6em;

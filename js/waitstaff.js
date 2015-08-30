@@ -8,7 +8,7 @@ var debug = function(msg) {
 var tipCount = 0;
 var mealCount = 0;
 
-angular.module('WaitStaffApp', ['ngRoute'])
+angular.module('WaitStaffApp', ['ngRoute', 'ngAnimate'])
 
   .config(['$routeProvider',function($routeProvider) {
     $routeProvider.when('/', {
@@ -29,12 +29,16 @@ angular.module('WaitStaffApp', ['ngRoute'])
 
   }])
   .controller('HomeCtrl', function($scope, $location) {
+    $scope.pageClass = 'page-home';
+
     // Set active link
     $scope.isActive = function(route) {
         return route === $location.path();
     };
   })
   .controller('MealCtrl', function($scope) {
+
+    $scope.pageClass = 'page-meal';
 
     $scope.priceMin = 0.01;
     $scope.percentageMax = 100;
