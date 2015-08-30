@@ -119,6 +119,8 @@ angular.module('WaitStaffApp', ['ngRoute', 'ngAnimate'])
   })
   .controller('EarningsCtrl', function($scope) {
 
+    $scope.pageClass = 'page-earnings';
+
     $scope.tipCountStr = tipCount.toFixed(2);
     $scope.mealCountStr = mealCount.toFixed(2);
     if ( mealCount === 0 ) {
